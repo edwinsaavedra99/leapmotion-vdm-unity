@@ -1,0 +1,65 @@
+class HandTrack			
+	instance variables
+		public puntos : seq of PointTrack := [];
+		public status : bool := false;	
+		public velocidad : real;
+		public peso : nat1 := 4;
+		inv len puntos <= 25;		
+	operations
+		public isPositionGood:() ==> bool
+		isPositionGood() ==	(
+			if (forall p in set inds puntos & puntos(p).getZ() > 0 and
+				puntos(p).getY() * puntos(p).getY() + 
+				puntos(p).getX() * puntos(p).getX() + 
+				puntos(p).getZ() * puntos(p).getZ() > 7.5 and
+				puntos(p).getY() * puntos(p).getY() + 
+				puntos(p).getX() * puntos(p).getX() + 
+				puntos(p).getY() * puntos(p).getZ() < 55 and
+				0.36 * puntos(p).getX() - puntos(p).getZ() > 0 and
+				0.70 * puntos(p).getY() - puntos(p).getZ() > 0 )
+				then (status:= true;)
+			else (status:= false;);
+			return status;
+		);		
+		public esCostoAdecuado: seq of PointTrack ==> bool
+		esCostoAdecuado(puntos1) ==(
+			if (len puntos1 = len puntos)
+			then (
+				if(forall p in set inds puntos & 
+				abs (puntos(p).getX() - puntos1(p).getX() ) <peso and
+				abs (puntos(p).getY() - puntos1(p).getY() ) <peso and
+				abs (puntos(p).getZ() - puntos1(p).getZ() ) <peso)
+					then (return true;)
+					else (return false;);
+			)
+			else (return false;)
+		);		
+		public getFingers:() ==> seq of PointTrack
+		getFingers() ==
+			return puntos;			
+		public getTipFingers:() ==> seq of PointTrack
+		getTipFingers() ==
+			return [ puntos(p) | p in set inds puntos 
+			& puntos(p).getBone() = <Distal>];			
+		public getVelocidad:() ==> real
+		getVelocidad() ==
+			return velocidad;			
+		public setVelocidad:real ==>()
+		setVelocidad(v) ==(
+			velocidad:=v;
+		);		
+		public setPesoIndice:nat1 ==>()
+		setPesoIndice(indice) == (
+			if(indice <= 4)
+				then (peso:=3;)
+				else( if ( indice <= 7 )
+						then (peso:=2;)
+						else (peso:=1;);)
+		);		
+		public HandTrack: bool * seq of PointTrack * real ==> HandTrack
+		HandTrack(status1, puntos1,velocidad1) == ( 	
+			status := status1;
+			puntos := puntos1;
+			velocidad := velocidad1;
+		);			
+end HandTrack

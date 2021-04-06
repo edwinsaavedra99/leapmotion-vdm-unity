@@ -1,0 +1,37 @@
+class Movimiento	
+	types
+		public typeMovement = <Pinza> | <FlexoExtension> | <PronoSupination> | <Rotation> | <No>;	
+	instance variables
+		public frames : map typeMovement to seq of HandTrack;
+	operations				
+		public thatMovement:seq of HandTrack ==> typeMovement
+		thatMovement(frames_1) == (	
+			if(forall f in set inds  frames(<Pinza>) 
+			& frames(<Pinza>)(f).esCostoAdecuado(frames_1(f).getFingers()) = true 
+			and isVelocidadAdecuada(frames(<Pinza>)(f),frames_1(f)) = true)
+			then (return <Pinza>;) else (return <No>;);
+			if(forall f in set inds  frames(<FlexoExtension>)
+			& frames(FlexoExtension)(f).esCostoAdecuado(frames_1(f).getFingers()) = true 
+			and isVelocidadAdecuada(frames(<FlexoExtension>)(f),frames_1(f)) = true)
+			then (return <FlexoExtension>;) else (return <No>;);
+			if(forall f in set inds  frames(<PronoSupination>)
+			& frames(<PronoSupination>)(f).esCostoAdecuado(frames_1(f).getFingers()) = true 
+			and isVelocidadAdecuada(frames(<PronoSupination>)(f),frames_1(f)) = true)
+			then (return <PronoSupination>;) else (return <No>;);
+			if(forall f in set inds  frames(<Rotation>)
+			& frames(<Rotation>)(f).esCostoAdecuado(frames_1(f).getFingers()) = true 
+			and isVelocidadAdecuada(frames(<Rotation>)(f),frames_1(f)) = true)
+			then (return <Rotation>;) else (return <No>;);
+		);
+		public isVelocidadAdecuada: HandTrack * HandTrack ==> bool
+		isVelocidadAdecuada(handOrigen,handNew) == (
+			if(handNew.getVelocidad() < handOrigen.getVelocidad() + 50 
+			and  handNew.getVelocidad() > handOrigen.getVelocidad() - 50)
+			then (return true;)
+			else (return false;)
+		);	
+		public Movimiento: map typeMovement to seq of HandTrack ==> Movimiento
+		Movimiento(frames_1) ==( 	
+			frames := frames_1;
+		);				
+end Movimiento

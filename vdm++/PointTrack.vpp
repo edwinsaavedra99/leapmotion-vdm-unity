@@ -1,0 +1,46 @@
+class PointTrack
+	types
+		public Finger = <Thumb> | <Index> | <Middle> | <Ring> | <Pinky>;
+		public Bone = <Distal> | <Intermediate> | <Proximal> | <Metacarpal>;		
+	instance variables
+		public fing : Finger;
+		public bone : Bone;
+		public x : real := 1;
+		public y : real := 1;
+		public z : real := 1;
+		inv z >=0
+	operations
+		public getX:() ==> real
+		getX() ==
+			return x;		
+		public getY:() ==> real
+		getY() ==
+			return y;		
+		public getZ:() ==> real
+		getZ() ==
+			return z;
+		public setX:real ==> ()
+		setX(coord_x) ==
+			x:=coord_x;		
+		public setY:real ==> ()
+		setY(coord_y) ==
+			y:=coord_y;	
+		public setZ:real ==> ()
+		setZ(coord_z) ==
+			z:=coord_z;	
+		public getFinger:() ==> Finger
+		getFinger() ==
+			return fing;		
+		public getBone:() ==> Bone
+		getBone() ==
+			return bone;			
+		public PointTrack: real * real * real * Finger * Bone ==> PointTrack
+		PointTrack(coord_x, coord_y, coord_z, finger, bone1) == 
+		( 	
+			fing := finger;
+			bone := bone1;
+			x := coord_x;
+			y := coord_y;
+			z := coord_z;
+		);				
+end PointTrack

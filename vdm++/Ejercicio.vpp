@@ -1,0 +1,26 @@
+class Ejercicio		
+	
+	instance variables
+		public nombre : seq of char;
+		public movements : seq of Movimiento;
+		
+	operations				
+		public getNombre:() ==> seq of char
+		getNombre() ==
+			return nombre;		
+			
+		public reconocerMovimiento:seq of HandTrack ==> bool
+		reconocerMovimiento(gesto) ==
+		(	
+			if (exists mov in set inds movements & 
+					movements(mov).thatMovement(gesto) <> <No>)
+				then (return true;)
+				else (return false;);				
+		);	
+		public Ejercicio: seq of char * seq of Movimiento ==> Ejercicio
+		Ejercicio(nombre_1, movements_1) == 
+		( 	
+			nombre := nombre_1;
+			movements := movements_1;
+		);				
+end Ejercicio

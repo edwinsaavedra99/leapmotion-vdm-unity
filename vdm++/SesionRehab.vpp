@@ -1,0 +1,19 @@
+class SesionRehab		
+	
+	types
+		public Fecha = nat1 * nat1 * nat1;
+	instance variables
+		public fechaSesion : Fecha;
+		
+	operations				
+		public getFecha:() ==> Fecha
+		getFecha() ==
+			return fechaSesion;
+			
+		
+		public SesionRehab: Fecha ==> SesionRehab
+		SesionRehab(fechaSesion_1) == 
+		( 	
+			fechaSesion := fechaSesion_1;
+		);				
+end SesionRehab

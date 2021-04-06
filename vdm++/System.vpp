@@ -1,0 +1,34 @@
+class System	
+	instance variables
+		public leap : LeapMotion;
+		--public sesiones : map SesionRehab to seq of Ejercicio;
+		public indiceMejora : nat := 3;
+		public latency : real := 1;
+		inv latency > 0;
+		inv indiceMejora < 10;		
+	operations				
+		public alertLatency:real ==> bool
+		alertLatency(lat) == (
+			if(lat >= 20)
+				then (return true;)
+				else (return false;)
+		);		
+		public alertDistance:() ==> bool
+		alertDistance() == (
+			if(leap.getLeftHand().isPositionGood() = false 
+			or leap.getRightHand().isPositionGood() = false)
+				then (return true;)
+				else (return false;)
+		);		
+		public setIndiceMejora: nat ==> ()
+		setIndiceMejora(i) == (
+			indiceMejora := i;
+			leap.getLeftHand().setPesoIndice(indiceMejora);
+			leap.getRightHand().setPesoIndice(indiceMejora);
+		);
+		public System: LeapMotion ==> System
+		System(leap_1) == ( 	
+			leap := leap_1;
+			--sesiones := sesiones_1;			
+		);			
+end System

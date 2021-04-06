@@ -1,0 +1,18 @@
+class LeapMotion		
+	instance variables
+		public leftHand : HandTrack;
+		public rightHand : HandTrack;
+	operations				
+		public getLeftHand:() ==> HandTrack
+		getLeftHand() ==
+			return leftHand;		
+		public getRightHand:() ==> HandTrack
+		getRightHand() ==
+			return rightHand;	
+		public LeapMotion: HandTrack * HandTrack ==> LeapMotion
+		LeapMotion(left, right) == 
+		( 	
+			leftHand := left;
+			rightHand := right;
+		);			
+end LeapMotion
