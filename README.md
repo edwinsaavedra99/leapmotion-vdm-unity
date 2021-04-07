@@ -28,12 +28,12 @@ Este prototipo fue desarrollado en unity: A partir de un conjunto de assets Lost
 
 
 * **Edwin Enrique Saavedra Parisaca** - *Trabajo Inicial* - [linked](https://www.linkedin.com/in/edwin-saavedra-a9538a1a1/)
-* **Elizabeth Vidal Duarte* - [linked](https://www.linkedin.com/in/elizabeth-vidal-duarte/)
+* **Elizabeth Vidal Duarte** - [linked](https://www.linkedin.com/in/elizabeth-vidal-duarte/)
 
 ## Referencias 📖
 
-[1] Overture Tool, Formal Modeling in VDM. [Online] Available: https://www.overturetool.org/publications/books/vdmtools.html
-[2] FMVDM, VDMTOOLS. [Online] Available: http://fmvdm.org/vdmtools/index.html
-[3] P. Senin, “Dynamic time warping algorithm review”. Information and Computer Science Department University of Hawaii at Manoa Honolulu, USA, vol. 855. pp. 1-23, 2008.
-[4] Unity Assets 2D project: Lost Crypt, [Online] Available: https://blogs.unity3d.com/2019/12/18/download-our-new-2d-sample-project-lost-crypt/?_ga=2.198153711.1756286399.1617779673-538258448.1584847703
-[5] Ultraleap, “Leap Motion Developer”, 2013. [Online]. Available: https://developer.leapmotion.com/
+[1] Overture Tool, Formal Modeling in VDM. [Online] Available: https://www.overturetool.org/publications/books/vdmtools.html  
+[2] FMVDM, VDMTOOLS. [Online] Available: http://fmvdm.org/vdmtools/index.html  
+[3] P. Senin, “Dynamic time warping algorithm review”. Information and Computer Science Department University of Hawaii at Manoa Honolulu, USA, vol. 855. pp. 1-23, 2008.  
+[4] Unity Assets 2D project: Lost Crypt, [Online] Available: https://blogs.unity3d.com/2019/12/18/download-our-new-2d-sample-project-lost-crypt/?_ga=2.198153711.1756286399.1617779673-538258448.1584847703  
+[5] Ultraleap, “Leap Motion Developer”, 2013. [Online]. Available: https://developer.leapmotion.com/  
